@@ -267,6 +267,23 @@ document.getElementById("result").innerHTML =
 `
 <img src="${photos[winner]}" class="result-photo">
 `;
+
+// 🔥 送到 Google Sheets
+fetch("https://script.google.com/macros/s/AKfycbyb0VbEariw0pjKiB0VSTbRwOBKIZEUuy_AIUpw3elYtdKH0hvSmk54vBBR7e1hgZr1tQ/exec", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        q1: scores.A,
+        q2: scores.B,
+        q3: scores.C,
+        q4: scores.D,
+        q5: scores.E,
+        q6: winner
+    })
+});
+
 }
 
 </script>
